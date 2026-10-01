@@ -5,6 +5,7 @@ When resolving Wikidata Q-IDs with GND-IDs, several issues can arise due to the 
 The GND database periodically merges authority records that refer to the same person. An item on Wikidata might still contain references to the old authority ID. 
 ### Example
 https://www.wikidata.org/wiki/Q312384
+![alt-text](./images/2026-10-01_Q312384.png)
 ### Solution
 Query the lobid.org GND API. It automatically redirects you to the most recent authority id, so check for redirection
 ```
@@ -19,6 +20,7 @@ real_gnd_id = (
 Some people use pseudonyms for their professional lives. Since they might have two GND IDs, one for their personal life and one for their professional pseudonym, both links can be correct for a Wikidata item.
 ### Example
 https://www.wikidata.org/wiki/Q213855
+![alt-text](./images/2026-10-01_Q213855.png)
 whose GND IDs are:
 https://d-nb.info/gnd/118822039, https://d-nb.info/gnd/1067756124
 ### Solution
@@ -27,6 +29,7 @@ Would have to be individual to the use-case. You can solve it the same way as Ca
 ## Case 2: Incorrect or uncertain linking
 ### Example
 https://www.wikidata.org/wiki/Q5460735
+![alt-text](./images/2026-10-01_Q5460735.png)
 ### Solution
 Search via wdt: prefix, like
 ```
@@ -42,7 +45,7 @@ which will give preference to the "best ranked" statement as defined by Wikidata
 Unfortunately, Wikidata has two fields for the GND ID: P227 and P7902, if both have different GND IDs, there's no priority ordering like there is in Case 2.
 ### Example
 https://www.wikidata.org/wiki/Q18393611
-![alt-text](./images/Q18393611_two_gnds.png)
+![alt-text](./images/2026-10-01_Q18393611.png)
 one of them (106185082X) is clearly incorrect, these we can gather and send to Wikidata or fix manually.
 https://www.wikidata.org/wiki/Q94803987
 ### Solution
@@ -52,6 +55,7 @@ Will have to actually change the Wikidata record.
 The two GND IDs might refer to the same person, but the information given is not enough to ascertain it.
 ### Example
 https://www.wikidata.org/wiki/Q72067012
+![alt-text](./images/2026-10-01_Q72067012.png)
 ### Solution
 Unfortunately, this would require some sort of deep-dive into this person or these persons in order to manually either consolidate or clearly disambiguate them.
 

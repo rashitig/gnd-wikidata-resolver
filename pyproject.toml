@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gnd-wikidata-resolver"
+version = "0.1.0"
+description = "Resolve Wikidata Q-IDs to GND IDs and classify items with multiple GND IDs"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+dependencies = ["requests"]
+
+[project.urls]
+Homepage = "https://github.com/rashitig/gnd-wikidata-resolver"
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

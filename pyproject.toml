@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gnd-wikidata-resolver"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
   { name="Gentiana Rashiti", email="gentiana.rashiti@library.ethz.ch" },
 ]
@@ -16,7 +16,7 @@ classifiers = [
 ]
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
-dependencies = ["requests"]
+dependencies = ["requests>=2.31"]
 
 [project.urls]
 Homepage = "https://github.com/rashitig/gnd-wikidata-resolver"

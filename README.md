@@ -147,10 +147,6 @@ Example: https://www.wikidata.org/wiki/Q72067012
 
 The pseudonym check looks for the other record's ID and the word "Pseudonym" in the lobid record, and name matching compares name tokens. Both are heuristics to reduce time spent on checking the multiple GND-IDs later on.
 
-## Contact
-
-If you have any questions, feel free to reach out to rashitig@ethz.ch.
-
 ## License
 
 See [LICENSE](./LICENSE).

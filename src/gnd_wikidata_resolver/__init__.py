@@ -4,7 +4,7 @@ from functools import cache
 
 from ._util import set_user_agent
 from .classify import Decision, classify
-from .lobid import lobid, resolve_records
+from .lobid import fetch_lobid_record, resolve_records
 from .wikidata import fetch_item, make_session, qids_for_gnd_ids
 
 __all__ = [
@@ -43,10 +43,10 @@ def get_wikidata_id_by_gnd_id(gnd_id: str) -> list[str]:
     session = make_session()
     candidates = [gnd_id]
 
-    rec = lobid(gnd_id, session)
+    rec = fetch_lobid_record(gnd_id, session)
     if rec.get("merged_into"):  # old ID -> follow the redirect
         candidates.append(rec["merged_into"])
-        rec = lobid(rec["merged_into"], session)
+        rec = fetch_lobid_record(rec["merged_into"], session)
     if not rec.get("missing"):  # current record -> add its old IDs
         candidates.append(rec["current"])
         candidates.extend(rec.get("deprecated", []))

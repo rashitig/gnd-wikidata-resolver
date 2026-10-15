@@ -9,7 +9,7 @@ from . import _util
 LOBID_URL = "https://lobid.org/gnd/{}.json"
 
 
-def lobid(gnd_id: str, session: requests.Session) -> dict:
+def fetch_lobid_record(gnd_id: str, session: requests.Session) -> dict:
     """Fetch one GND record. Redirects are NOT followed.
 
     - 404      -> {"requested": id, "missing": True}
@@ -53,7 +53,7 @@ def resolve_records(gnd_ids: list[str], session: requests.Session) -> list[dict]
 
     def fetch(g: str) -> dict:
         if g not in cache:
-            cache[g] = lobid(g, session)
+            cache[g] = fetch_lobid_record(g, session)
         return cache[g]
 
     current: list[str] = []

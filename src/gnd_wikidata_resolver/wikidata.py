@@ -28,6 +28,7 @@ def sparql_query(query: str, session: requests.Session | None = None):
             SPARQL_URL,
             params={"query": query, "format": "json"},
             headers={"Accept": "application/sparql-results+json"},
+            timeout=60,
         )
         req.raise_for_status()
         return req.json(), session
